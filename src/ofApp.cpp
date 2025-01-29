@@ -70,14 +70,11 @@ void ofApp::setup()
 	height = 480; // same as ofGetHeight();
 	inputSetup();
 	allocateAndDeclareSundries();
-	if (ofIsGLProgrammableRenderer())
-	{
-		shaderColorize.load("shadersGL3/shaderColorize");
-	}
-	else
-	{
+	#ifdef TARGET_RASPBERRY_PI
 		shaderColorize.load("shadersES2/shaderColorize");
-	}
+	#else
+		shaderColorize.load("shadersGL3/shaderColorize");
+	#endif
 	midiSetup();
 	controlSetup();
 }

@@ -70,7 +70,7 @@ void ofApp::setup()
 	height = 480; // same as ofGetHeight();
 	inputSetup();
 	allocateAndDeclareSundries();
-	#ifdef TARGET_RASPBERRY_PI
+	#ifdef __linux__
 		shaderColorize.load("shadersES2/shaderColorize");
 		ofLog() << "RPI setup loop";
 	#else

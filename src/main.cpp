@@ -14,7 +14,7 @@
 int main()
 {
 // #ifdef TARGET_OPENGLES
-#ifdef TARGET_RASPBERRY_PI
+#ifdef __linux__
 	ofGLESWindowSettings settings;
 	settings.glesVersion = 2;
 	settings.windowMode = OF_GAME_MODE;

@@ -479,7 +479,7 @@ void ofApp::inputSetup()
 {
 
 	input1.setDesiredFrameRate(30);
-	input1.initGrabber(width, height);
+	input1.setup(width, height);
 
 	if (hdAspectRatioSwitch == 1)
 	{

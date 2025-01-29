@@ -129,7 +129,7 @@ void ofApp::draw()
 	// framerate displayed to make sure i'm not losing any frames while testing out new features.  uncomment the ofDrawBitmap etc etc
 	// to print the stuff out on screen
 	ofSetColor(255);
-	string msg = "fps=" + ofToString(ofGetFrameRate(), 2);
+	string msg = "fps=" + ofToString((int)ofGetFrameRate(), 2);
 	// ofDrawBitmapString(msg,10,10);
 
 	/*
@@ -169,7 +169,7 @@ void ofApp::midiSetup()
 	midiIn.listInPorts();
 
 	// open port by number (you may need to change this)
-	midiIn.openPort(1);
+	midiIn.openPort(0);
 	// midiIn.openPort("IAC Pure Data In");	// by name
 	// midiIn.openVirtualPort("ofxMidiIn Input"); // open a virtual port
 
@@ -413,8 +413,6 @@ void ofApp::midiBiz()
 		}
 	}
 }
-
-//----------------------------------------------------------
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key)

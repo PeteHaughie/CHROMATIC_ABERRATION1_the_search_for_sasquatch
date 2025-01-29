@@ -320,7 +320,7 @@ void ofApp::midiBiz()
 					{
 						if (abs(message.value / 127.0f - control0[message.control - 16]) < CONTROL_THRESHOLD)
 						{
-							midiActiveFloat0[message.control - 16] = TRUE;
+							midiActiveFloat0[message.control - 16] = true;
 						}
 						if (midiActiveFloat0[message.control - 16] == 1)
 						{
@@ -331,7 +331,7 @@ void ofApp::midiBiz()
 					{
 						if (abs(message.value / 127.0f - control2[message.control - 16]) < CONTROL_THRESHOLD)
 						{
-							midiActiveFloat2[message.control - 16] = TRUE;
+							midiActiveFloat2[message.control - 16] = true;
 						}
 						if (midiActiveFloat2[message.control - 16] == 1)
 						{
@@ -342,7 +342,7 @@ void ofApp::midiBiz()
 					{
 						if (abs(message.value / 127.0f - control3[message.control - 16]) < CONTROL_THRESHOLD)
 						{
-							midiActiveFloat3[message.control - 16] = TRUE;
+							midiActiveFloat3[message.control - 16] = true;
 						}
 						if (midiActiveFloat3[message.control - 16] == 1)
 						{
@@ -356,7 +356,7 @@ void ofApp::midiBiz()
 					{
 						if (abs(message.value / 127.0f - control0[message.control - 120 + 8]) < CONTROL_THRESHOLD)
 						{
-							midiActiveFloat0[message.control - 120 + 8] = TRUE;
+							midiActiveFloat0[message.control - 120 + 8] = true;
 						}
 						if (midiActiveFloat0[message.control - 120 + 8] == 1)
 						{
@@ -367,7 +367,7 @@ void ofApp::midiBiz()
 					{
 						if (abs(message.value / 127.0f - control1[message.control - 120 + 8]) < CONTROL_THRESHOLD)
 						{
-							midiActiveFloat1[message.control - 120 + 8] = TRUE;
+							midiActiveFloat1[message.control - 120 + 8] = true;
 						}
 						if (midiActiveFloat1[message.control - 120 + 8] == 1)
 						{
@@ -378,7 +378,7 @@ void ofApp::midiBiz()
 					{
 						if (abs(message.value / 127.0f - control2[message.control - 120 + 8]) < CONTROL_THRESHOLD)
 						{
-							midiActiveFloat2[message.control - 120 + 8] = TRUE;
+							midiActiveFloat2[message.control - 120 + 8] = true;
 						}
 						if (midiActiveFloat2[message.control - 120 + 8] == 1)
 						{
@@ -389,7 +389,7 @@ void ofApp::midiBiz()
 					{
 						if (abs(message.value / 127.0f - control3[message.control - 120 + 8]) < CONTROL_THRESHOLD)
 						{
-							midiActiveFloat3[message.control - 120 + 8] = TRUE;
+							midiActiveFloat3[message.control - 120 + 8] = true;
 						}
 						if (midiActiveFloat3[message.control - 120 + 8] == 1)
 						{

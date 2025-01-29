@@ -16,15 +16,13 @@ int main()
 #ifdef TARGET_OPENGLES
 	ofGLESWindowSettings settings;
 	settings.glesVersion = 2;
+	settings.windowMode = OF_GAME_MODE;
 #else
 	ofGLWindowSettings settings;
 	settings.setGLVersion(3, 2);
+	settings.windowMode = OF_WINDOW;
 #endif
 	settings.setSize(720, 480);
 	ofCreateWindow(settings);
-
-	// this kicks off the running of my app
-	// can be OF_WINDOW or OF_FULLSCREEN
-	// pass in width and height too:
 	ofRunApp(new ofApp());
 }

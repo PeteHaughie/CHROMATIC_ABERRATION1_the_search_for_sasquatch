@@ -69,7 +69,7 @@ vec3 hsb2rgb(in vec3 c) {
 }
 
 void main() {
-	uv = gl_FragCoord.xy / resolution.xy;
+	vec2 uv = gl_FragCoord.xy / resolution.xy;
 	//blurrin a lil bit
 	//add a switch for this maybe
 	float x = .0015625;
@@ -197,6 +197,6 @@ void main() {
 
 	color.rgb = colorOutRgb;
 
-	// gl_FragColor = color;
-	gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+	gl_FragColor = color;
+	//gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
 }

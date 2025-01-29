@@ -18,6 +18,7 @@ int main()
 	ofGLESWindowSettings settings;
 	settings.glesVersion = 2;
 	settings.windowMode = OF_GAME_MODE;
+	cout << "RPI main entry point" << endl;
 #else
 	ofGLWindowSettings settings;
 	settings.setGLVersion(3, 2);

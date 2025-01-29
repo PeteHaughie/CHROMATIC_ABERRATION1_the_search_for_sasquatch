@@ -72,6 +72,7 @@ void ofApp::setup()
 	allocateAndDeclareSundries();
 	#ifdef TARGET_RASPBERRY_PI
 		shaderColorize.load("shadersES2/shaderColorize");
+		ofLog() << "RPI setup loop";
 	#else
 		shaderColorize.load("shadersGL3/shaderColorize");
 	#endif

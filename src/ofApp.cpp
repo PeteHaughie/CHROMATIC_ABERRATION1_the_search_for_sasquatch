@@ -75,6 +75,7 @@ void ofApp::setup()
 		ofLog() << "RPI setup loop";
 	#else
 		shaderColorize.load("shadersGL3/shaderColorize");
+		ofLog() << "Other setup loop";
 	#endif
 	midiSetup();
 	controlSetup();

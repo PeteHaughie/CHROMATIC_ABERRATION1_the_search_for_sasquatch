@@ -23,6 +23,7 @@ int main()
 	ofGLWindowSettings settings;
 	settings.setGLVersion(3, 2);
 	settings.windowMode = OF_WINDOW;
+	cout << "Other main entry point" << endl;
 #endif
 	settings.setSize(720, 480);
 	ofCreateWindow(settings);

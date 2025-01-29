@@ -72,10 +72,8 @@ void ofApp::setup()
 	allocateAndDeclareSundries();
 	#ifdef __linux__
 		shaderColorize.load("shadersES2/shaderColorize");
-		ofLog() << "RPI setup loop";
 	#else
 		shaderColorize.load("shadersGL3/shaderColorize");
-		ofLog() << "Other setup loop";
 	#endif
 	midiSetup();
 	controlSetup();

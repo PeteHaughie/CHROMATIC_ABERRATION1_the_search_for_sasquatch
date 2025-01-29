@@ -52,5 +52,7 @@ public:
 
 	ofFbo framebuffer0;
 
-	ofVideoGrabber input1;
+	ofVideoGrabber cam;
+
+	unsigned int long devID = 0, prevDevID = 0;
 };

@@ -94,7 +94,7 @@ void ofApp::draw()
 	shaderColorize.begin();
 	if (hdAspectRatioSwitch == 0)
 	{
-		input1.draw(0, 0);
+		cam.draw(0, 0);
 		shaderColorize.setUniform2f("resolution", width, height);
 	}
 	if (hdAspectRatioSwitch == 1)
@@ -436,6 +436,18 @@ void ofApp::keyPressed(int key)
 	{
 		dc -= .0001;
 	}
+	if (key == '0')
+	{
+		vector<ofVideoDevice> devices = cam.listDevices();
+		if (devID < devices.size())
+		{
+			devID++;
+		}
+		else
+		{
+			devID = 0;
+		}
+	}
 }
 
 //--------------------------------------------------------------
@@ -476,13 +488,13 @@ void ofApp::controlSetup()
 void ofApp::inputSetup()
 {
 
-	input1.setDesiredFrameRate(30);
-	input1.setup(width, height);
+	cam.setDesiredFrameRate(30);
+	cam.setup(width, height);
 
 	if (hdAspectRatioSwitch == 1)
 	{
 		aspectFixFb.begin();
-		input1.draw(0, 0, 853, 480);
+		cam.draw(0, 0, 853, 480);
 		aspectFixFb.end();
 	}
 }
@@ -502,12 +514,19 @@ void ofApp::allocateAndDeclareSundries()
 //--------------------------------------------------------------
 void ofApp::inputUpdate()
 {
-	input1.update();
+	cam.update();
+	if (devID != prevDevID)
+	{
+		cam.close();
+		cam.setDeviceID(devID);
+		cam.setup(ofGetWidth(), ofGetHeight());
+		prevDevID = devID;
+	}
 	// corner crop and stretch to preserve hd aspect ratio
 	if (hdAspectRatioSwitch == 1)
 	{
 		aspectFixFb.begin();
-		input1.draw(-106, 0, 853, 480);
+		cam.draw(-106, 0, 853, 480);
 		aspectFixFb.end();
 	}
 }

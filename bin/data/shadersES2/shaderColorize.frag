@@ -2,6 +2,8 @@ OF_GLSL_SHADER_HEADER
 
 uniform sampler2D tex0;
 
+uniform vec2 resolution;
+
 uniform float saturation0;
 uniform float saturation1;
 uniform float saturation2;
@@ -47,8 +49,6 @@ uniform float brightLfo5;
 uniform float brightLfo6;
 uniform float brightLfo7;
 
-out vec4 fragColor;
-
 vec3 rgb2hsb(in vec3 c) {
 	vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
 	vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
@@ -69,12 +69,13 @@ vec3 hsb2rgb(in vec3 c) {
 }
 
 void main() {
+	uv = gl_FragCoord.xy / resolution.xy;
 	//blurrin a lil bit
 	//add a switch for this maybe
 	float x = .0015625;
 	float y = .0020833;
 
-	vec4 color = texture2D(tex0, texCoordVarying) + texture2D(tex0, texCoordVarying + vec2(x, y)) + texture2D(tex0, texCoordVarying + vec2(x, -y)) + texture2D(tex0, texCoordVarying + vec2(-x, y)) + texture2D(tex0, texCoordVarying + vec2(-x, -y));
+	vec4 color = texture2D(tex0, uv) + texture2D(tex0, uv + vec2(x, y)) + texture2D(tex0, uv + vec2(x, -y)) + texture2D(tex0, uv + vec2(-x, y)) + texture2D(tex0, uv + vec2(-x, -y));
 
 	color.rgb = color.rgb / 5.0;
 

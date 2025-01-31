@@ -166,7 +166,7 @@ void ofApp::midiSetup()
 	midiIn.listInPorts();
 
 	// open port by number (you may need to change this)
-	midiIn.openPort(0);
+	midiIn.openPort(midiID);
 	// midiIn.openPort("IAC Pure Data In");	// by name
 	// midiIn.openVirtualPort("ofxMidiIn Input"); // open a virtual port
 
@@ -448,6 +448,29 @@ void ofApp::keyPressed(int key)
 			devID = 0;
 		}
 	}
+	if (key == '9')
+	{
+		vector <string> devices;
+		devices = midiIn.getInPortList();
+		if (devices.empty())
+		{
+			cout << "no midi devices found" << endl;
+			return;
+		} else {
+			for (int i = 0; i < devices.size(); i++)
+			{
+				cout << devices[i] << endl;
+			}
+			if (midiID < devices.size())
+			{
+				midiID++;
+			}
+			else
+			{
+				midiID = 0;
+			}
+		}
+	}
 }
 
 //--------------------------------------------------------------
@@ -521,6 +544,14 @@ void ofApp::inputUpdate()
 		cam.setDeviceID(devID);
 		cam.setup(ofGetWidth(), ofGetHeight());
 		prevDevID = devID;
+	}
+
+	if (midiID != prevMidiID)
+	{
+		midiIn.closePort();
+		midiIn.openPort(midiID);
+		ofLog() << "midiID: " << midiID;
+		prevMidiID = midiID;
 	}
 	// corner crop and stretch to preserve hd aspect ratio
 	if (hdAspectRatioSwitch == 1)

@@ -55,5 +55,5 @@ public:
 	ofVideoGrabber cam;
 
 	unsigned int long devID = 0, prevDevID = 0;
-	unsigned int long midiID = 0, prevMidiID = 0;
+	unsigned int long midiID = 1, prevMidiID = 1;
 };

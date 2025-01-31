@@ -70,11 +70,18 @@ void ofApp::setup()
 	height = 480; // same as ofGetHeight();
 	inputSetup();
 	allocateAndDeclareSundries();
-	#ifdef __linux__
-		shaderColorize.load("shadersES2/shaderColorize");
-	#else
-		shaderColorize.load("shadersGL3/shaderColorize");
-	#endif
+#ifdef __linux__
+	shaderColorize.load("shadersES2/shaderColorize");
+#else
+	shaderColorize.load("shadersGL3/shaderColorize");
+#endif
+	vector<string> devices;
+	devices = midiIn.getInPortList();
+	if (devices.size() > 0)
+	{
+		devID = 1;
+		prevDevID = 1;
+	}
 	midiSetup();
 	controlSetup();
 }
@@ -450,13 +457,15 @@ void ofApp::keyPressed(int key)
 	}
 	if (key == '9')
 	{
-		vector <string> devices;
+		vector<string> devices;
 		devices = midiIn.getInPortList();
 		if (devices.empty())
 		{
 			cout << "no midi devices found" << endl;
 			return;
-		} else {
+		}
+		else
+		{
 			for (int i = 0; i < devices.size(); i++)
 			{
 				cout << devices[i] << endl;

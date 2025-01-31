@@ -56,7 +56,7 @@ https://www.facebook.com/groups/440566853501750/
 ## Community
 Facebook is a hellscape but the link above has been left for historical purposes.
 
-You can catch Andrei Jay on [scanlines.xyz](https://scanlines.xyz/u/andrei_jay/summary), the official Discord (You'll have to search for it because the invite link expires…) or [Polyphase](https://polyphaseportal.xyz/about/)
+You can catch Andrei Jay on [scanlines.xyz](https://scanlines.xyz/u/andrei_jay/summary), the official [Discord](https://discord.gg/Bnq8dfug9f) or [Polyphase](https://polyphaseportal.xyz/about/)
 
 ## Platforms
 
